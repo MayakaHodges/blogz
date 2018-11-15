@@ -6,13 +6,25 @@
             .error{ 
                 color: red;
                 font-style: italic; }
+            .user_account{
+                float: right;
+            }
+            .blog_author{
+                font-style: italic;
+                font-size: 12px;
+            }
         </style>
     </head>
 
 <body>
     <nav>
-        <a href="/blog">Main Blog Page</a>
-        <a href="/newpost">Add a Blog Entry</a>
+        <div class="user_account">
+            <a href="/login">login</a>
+            <a href="/logout">logout</a>
+        </div>
+        <a href="/">home</a>
+        <a href="/blog">all post</a>
+        <a href="/newpost">new post</a>
     </nav>
 
     {% block content %}
