@@ -88,15 +88,19 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+
+        user_error = ''
+        login_password_error = ''
+
         user = User.query.filter_by(username=username).first()
+        
         if not user:
             user_error = "That username does not exist."
-        if user.password != password:
-            login_password_error = "That's not a vaild password"
         if user and user.password == password:
             session['username']=username
             return redirect('/newpost')
         else:
+            login_password_error = "That's not a vaild password"
             return render_template('login.html',
             username=username,
             user_error=user_error, 
